@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,12 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/send-message', function (Request $request) {
+        DB::table('messages')->insert([
+        'email' => $request->email,
+        'mobile' => $request->phone,
+        'fullName' => $request->fullName,
+        'message' => $request->message,
+    ]);
     return
     '<ul>' .
     '<li>' . $request->email . '</li>' .
