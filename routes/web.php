@@ -34,6 +34,18 @@ Route::post('/send-message', function (Request $request) {
         'fullName' => $request->fullName,
         'message' => $request->message,
     ]);
+    // Message::insert([
+    //     'email' => $request->email,
+    //     'mobile' => $request->mobile,
+    //     'fullName' => $request->fullName,
+    //     'message' => $request->message,
+    // ]);
+    // DB::table('messages')->insert([
+    //     'email' => $request->email,
+    //     'mobile' => $request->phone,
+    //     'fullName' => $request->fullName,
+    //     'message' => $request->message,
+    // ]);
     return
     '<ul>' .
     '<li>' . $request->email . '</li>' .
