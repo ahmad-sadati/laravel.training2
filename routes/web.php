@@ -17,11 +17,6 @@ use App\Models\Message;
 |
  */
 Route::view('/', 'welcome', ['day' => false, 'isActive' => false]);
-
-Route::get('/book/{id}/page/{number}', function ($id, $number) {
-    return 'Book ' . $id . ' - Page ' . $number;
-});
-
 Route::get('/about', function () {
     return view('about');
 });
@@ -44,7 +39,6 @@ Route::put('edit-message/{id}', function (Request $request, $id) {
     $message->save();
     return redirect('/contact#messageArea');
 });
-
 Route::post('/send-message', function (Request $request) {
     $message = new Message;
     $message->email = $request->email;
