@@ -19,17 +19,12 @@ use App\Http\Controllers\ProfileController;
  */
 Route::view('/', 'welcome', ['day' => false, 'isActive' => false]);
 
-Route::get('/book/{id}/page/{number}', function ($id, $number) {
-    return 'Book ' . $id . ' - Page ' . $number;
-});
-
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::resource('/messages', MessageController::class);
 
